@@ -5,17 +5,17 @@ class Warrior():
         self.endurance = endurance # в этих 4-х строках - создаем характеристику персонажа
         self.hair_color = hair_color
 
-    def sleep(selfself):   # Создаем МЕТОД СПАТЬ. Класс м создать и без init, если нет хар-к, а есть только функци
-        print(f"{seff.name} лег спать")
+    def sleep(self):   # Создаем МЕТОД СПАТЬ. Класс м создать и без init, если нет хар-к, а есть только функци
+        print(f"{self.name} лег спать")
         self.endurance += 2  #пока спит - добавляется 2 очка выносливости.
 
-    def  eat(self): #метод КУШАТЬ
+    def eat(self): #метод КУШАТЬ
         print(f"{self.name} сел кушать")
         self.power += 1
 
     def hit(self):    #метод БИТЬ
         print(f"{self.name} бьет кого-то")
-        self.endurance -+ 6
+        self.endurance -= 6
 
     def walk(self):    #метод ХОДИТЬ
         print(f"{self.name} гуляет")  #не изменяем атрибуты при этом
