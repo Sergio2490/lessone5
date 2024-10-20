@@ -22,3 +22,52 @@
 # 3. Протестировать методы: Выбери один из созданных магазинов и протестируй все его методы:
 # добавь товар, обнови цену, убери товар и запрашивай цену.
 class Store():
+    def __init__(self, name, address):
+        self.name = name   # название магазина
+        self.address = address  # адрес магазина
+        self.items = {}
+
+    def add_item(self, item_name, price):   #Добавление товаров в ассортимент - метод
+        self.items[item_name] = price    #self.items - словарь, [item_name] - задаем для него новый ключ, price - задаем значение нашего ключа - это цена
+        print(f'товар {item_name} был добавлен в {self.name}')  #item_name -название товара, self.name - назв магазина из ф-ции init
+
+    def remove_item(self, item_name):  #Удаление товар item_name из ассортимента
+        if item_name in self.items:  #если товар с назв.item_name есть в нашем словаре self_items
+            del self.items[item_name]   #то удаляем товар из словаря
+            print(f'товар {item_name} был удалён из {self.name}')
+
+    def get_price(self, item_name):   #Метод для получения цены товара
+        return self.items.get(item_name)   #ьуещв словаря get() возвращает значение  (цену), соответствующее ключу item_name
+
+    def update_price(self, item_name, new_price):  #Метод для обновления цены товара
+        if item_name in self.items:  #проверим, есть ли товар с таким названием в словаре self.items
+            self.items[item_name] = new_price   #если назв товара есть в словаре, присваивает товару с ключом [items_name] новое значение цены
+            print(f'цена {item_name} была обновлена в {self.name}')
+        else:
+            print(f'товар {item_name}не найден')
+
+   #Класс создали, проверяем. Создадим несколько объектов класса
+store1 = Store('Пятерочка', 'Ленина 40')
+store2 = Store('Магнит', 'Ленина 45')
+store3 = Store('Ярче', 'Ленина 80')
+
+   #Добавим несколько товаров в ассортимент магазина 1
+store1.add_item('хлеб', 67)
+store1.add_item('молоко', 120)
+store1.add_item('гречка', 60)
+
+   #протестируем метод удаления
+store1.remove_item('хлеб')
+   #протестируем метод для получения цены
+print(store1.get_price('молоко'))  # зкште - тк в функции - return
+
+   #протестируем метод для обновления цены
+store1.update_price('гречка', 80)
+
+
+
+
+
+            
+
+
